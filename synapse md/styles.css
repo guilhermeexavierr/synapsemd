@@ -1,11 +1,10 @@
 /* ==========================================================================
-   SYNAPSE MD — Design System 100% Adaptado para Celular (iOS & Android) & Web
-   Mobile-First: Otimizado para telas de 360px a 430px (iPhone & Android)
-   Acessível, Humanizado, Sem bugs de zoom ou rolagem horizontal
+   SYNAPSE MD — Design System Acessível, Humanizado & Mobile-First
+   Compatível com iOS & Android | Ícones Neutros | Alto Contraste Limpo
    ========================================================================== */
 
 :root {
-  /* Cores de Saúde e Bem-Estar Humanizadas */
+  /* Cores Base Acolhedoras */
   --bg-app: #f8fafc;
   --bg-card: #ffffff;
   --bg-card-hover: #f1f5f9;
@@ -13,7 +12,7 @@
   --bg-soft-green: #f0fdf4;
   --bg-soft-rose: #fff1f2;
 
-  /* Acentos de Ação (WCAG AAA) */
+  /* Acentos de Ação */
   --primary: #0284c7;
   --primary-hover: #0369a1;
   --primary-light: #e0f2fe;
@@ -24,13 +23,13 @@
   --danger: #b91c1c;
   --danger-light: #fee2e2;
 
-  /* Texto e Contraste */
+  /* Textos */
   --text-main: #0f172a;
   --text-muted: #475569;
   --text-light: #64748b;
-  --border-color: #e2e8f0;
+  --border-color: #cbd5e1;
 
-  /* Tipografia Base (Escalável para idosos) */
+  /* Tipografia Base Escalável */
   --font-base: 16px;
   --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
@@ -41,38 +40,92 @@
   --radius-full: 9999px;
   --shadow-card: 0 2px 10px rgba(15, 23, 42, 0.05);
 
-  /* Medidas Mobile */
+  /* Dimensões */
   --bottom-nav-height: 64px;
   --touch-target: 48px;
 }
 
-/* Modos de Tamanho de Fonte (Acessibilidade) */
-body.font-large {
-  --font-base: 18.5px;
-}
-body.font-xlarge {
-  --font-base: 21px;
-}
-
-/* Modo Alto Contraste */
-body.high-contrast {
-  --bg-app: #ffffff;
-  --bg-card: #ffffff;
-  --text-main: #000000;
-  --text-muted: #111111;
-  --border-color: #000000;
-  --primary: #004b87;
-  --primary-light: #d0e5ff;
+/* ==========================================================================
+   CONTROLE DE FONTE (ACESSIBILIDADE COM SUPORTE TOTAL HTML E BODY)
+   ========================================================================== */
+html, body {
+  font-size: var(--font-base);
 }
 
+html.font-large, body.font-large {
+  --font-base: 19px !important;
+  font-size: 19px !important;
+}
+
+html.font-xlarge, body.font-xlarge {
+  --font-base: 22px !important;
+  font-size: 22px !important;
+}
+
+/* ==========================================================================
+   MODO ALTO CONTRASTE REFORÇADO (CONTORNOS NÍTIDOS E SEM ERROS DE BORDA)
+   ========================================================================== */
+html.high-contrast, body.high-contrast {
+  --bg-app: #ffffff !important;
+  --bg-card: #ffffff !important;
+  --bg-card-hover: #f4f4f5 !important;
+  --bg-soft-blue: #ffffff !important;
+  --bg-soft-green: #ffffff !important;
+  --bg-soft-rose: #ffffff !important;
+  --text-main: #000000 !important;
+  --text-muted: #18181b !important;
+  --text-light: #27272a !important;
+  --border-color: #000000 !important;
+  --primary: #004b87 !important;
+  --primary-hover: #003366 !important;
+  --primary-light: #e4e4e7 !important;
+}
+
+body.high-contrast * {
+  box-shadow: none !important;
+}
+
+body.high-contrast .accessibility-bar,
+body.high-contrast .header-human,
+body.high-contrast .welcome-card,
 body.high-contrast .problem-card,
+body.high-contrast .chat-container-human,
+body.high-contrast .chat-header-bar,
 body.high-contrast .chat-bubble,
+body.high-contrast .quick-opt-btn,
+body.high-contrast .chat-input-container,
+body.high-contrast .chat-text-input,
+body.high-contrast .mic-btn,
+body.high-contrast .send-human-btn,
 body.high-contrast .med-card,
-body.high-contrast .emergency-strip {
+body.high-contrast .emergency-strip,
+body.high-contrast .bottom-nav-mobile,
+body.high-contrast .a11y-btn,
+body.high-contrast .preset-chip-btn {
   border: 2px solid #000000 !important;
 }
 
-/* Reset Global & Otimizações Mobile */
+body.high-contrast .chat-bubble-wrap.assistant .chat-bubble {
+  background: #f4f4f5 !important;
+  color: #000000 !important;
+}
+
+body.high-contrast .chat-bubble-wrap.user .chat-bubble {
+  background: #004b87 !important;
+  color: #ffffff !important;
+}
+
+body.high-contrast .bottom-nav-mobile {
+  border-top: 3px solid #000000 !important;
+  background: #ffffff !important;
+}
+
+body.high-contrast .bottom-nav-btn.active {
+  color: #004b87 !important;
+  font-weight: 900 !important;
+}
+
+/* Reset Global */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -81,7 +134,6 @@ body.high-contrast .emergency-strip {
 }
 
 html {
-  font-size: var(--font-base);
   -webkit-text-size-adjust: 100%;
   height: 100%;
 }
@@ -100,7 +152,7 @@ body {
   touch-action: manipulation;
 }
 
-/* Wrapper Principal */
+/* Container Central Responsivo */
 .app-wrapper {
   width: 100%;
   max-width: 720px;
@@ -114,7 +166,7 @@ body {
 }
 
 /* ==========================================================================
-   BARRA SUPERIOR DE ACESSIBILIDADE — COMPACTA & SEM OVERFLOW EM TELAS PEQUENAS
+   BARRA SUPERIOR DE ACESSIBILIDADE
    ========================================================================== */
 .accessibility-bar {
   background: #ffffff;
@@ -153,15 +205,19 @@ body {
   font-size: 0.88em;
   min-height: 36px;
   min-width: 36px;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: var(--radius-sm);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 6px;
   user-select: none;
-  transition: background 0.15s, border-color 0.15s;
+  transition: all 0.15s ease;
+}
+
+.a11y-btn svg {
+  display: block;
 }
 
 .a11y-btn:active {
@@ -176,7 +232,7 @@ body {
 }
 
 /* ==========================================================================
-   CABEÇALHO COMPACTO MOBILE
+   CABEÇALHO COM ÍCONE NEUTRO ORIGINAL
    ========================================================================== */
 .header-human {
   background: #ffffff;
@@ -191,19 +247,15 @@ body {
 .brand-human {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .brand-logo-icon {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #0284c7, #0d9488);
-  border-radius: 12px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 20px;
   flex-shrink: 0;
 }
 
@@ -226,7 +278,7 @@ body {
 .status-badge-online {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   background: #dcfce7;
   color: #15803d;
   padding: 4px 10px;
@@ -244,11 +296,11 @@ body {
 }
 
 /* ==========================================================================
-   FAIXA DE EMERGÊNCIA COMPACTA (SEM CONSUMIR METADE DA TELA)
+   FAIXA DO SAMU (MANTÉM EMOJIS DE EMERGÊNCIA CONFORME PEDIDO)
    ========================================================================== */
 .emergency-strip {
   background: var(--bg-soft-rose);
-  border-left: 4px solid var(--danger);
+  border-left: 5px solid var(--danger);
   border-bottom: 1px solid #fecdd3;
   padding: 10px 14px;
   display: flex;
@@ -265,7 +317,7 @@ body {
 }
 
 .emergency-icon {
-  font-size: 20px;
+  font-size: 22px;
   color: var(--danger);
   flex-shrink: 0;
 }
@@ -341,8 +393,12 @@ body {
   gap: 8px;
 }
 
+.section-title svg {
+  color: var(--primary);
+}
+
 /* ==========================================================================
-   CARTÕES DE SINTOMAS / PROBLEMAS — THUMB-FRIENDLY NO CELULAR
+   CARTÕES DE SINTOMAS / PROBLEMAS COM ÍCONES NEUTROS
    ========================================================================== */
 .problems-grid {
   display: flex;
@@ -383,21 +439,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   flex-shrink: 0;
   background: var(--bg-soft-blue);
+  color: var(--primary);
 }
 
-.problem-card.coracao .problem-card-icon { background: #fee2e2; }
-.problem-card.respiracao .problem-card-icon { background: #e0f2fe; }
-.problem-card.estomago .problem-card-icon { background: #fef3c7; }
-.problem-card.remedios .problem-card-icon { background: #dcfce7; }
-.problem-card.dor-cabeca .problem-card-icon { background: #f3e8ff; }
-.problem-card.urgente .problem-card-icon { background: #ffe4e6; }
+.problem-card.coracao .problem-card-icon { background: #fee2e2; color: #dc2626; }
+.problem-card.respiracao .problem-card-icon { background: #e0f2fe; color: #0284c7; }
+.problem-card.estomago .problem-card-icon { background: #fef3c7; color: #d97706; }
+.problem-card.remedios .problem-card-icon { background: #dcfce7; color: #15803d; }
+.problem-card.dor-cabeca .problem-card-icon { background: #f3e8ff; color: #7e22ce; }
+.problem-card.urgente .problem-card-icon { background: #ffe4e6; color: #e11d48; }
 
 .problem-card-content {
   flex: 1;
-  min-width: 0; /* Previne overflow de texto */
+  min-width: 0;
 }
 
 .problem-card-content h3 {
@@ -426,7 +482,7 @@ body {
 }
 
 /* ==========================================================================
-   TELA DE CHAT NATIVA MOBILE (SEM DOUBLE-SCROLL OU CAIXAS DENTRO DE CAIXAS)
+   TELA DE CHAT & CARROSSEL DE DIÁLOGOS PRÉ-PRONTOS
    ========================================================================== */
 .chat-container-human {
   background: #ffffff;
@@ -437,7 +493,7 @@ body {
   flex-direction: column;
   width: 100%;
   height: calc(100dvh - 190px);
-  min-height: 380px;
+  min-height: 420px;
   overflow: hidden;
   position: relative;
 }
@@ -468,10 +524,69 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   flex-shrink: 0;
 }
 
+/* Barra de Diálogos Pré-Prontos */
+.preset-dialogues-bar {
+  background: #f8fafc;
+  border-bottom: 1px solid var(--border-color);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.preset-title-label {
+  font-size: 0.75em;
+  font-weight: 800;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.preset-chips-scroll {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+
+.preset-chips-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.preset-chips-scroll::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+.preset-chip-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.8em;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.preset-chip-btn:active {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary-hover);
+}
+
+/* Área de Rolagem do Chat */
 .chat-stream-box {
   flex: 1;
   overflow-y: auto;
@@ -524,13 +639,13 @@ body {
   color: var(--primary-hover);
   font-size: 0.8em;
   font-weight: 700;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: var(--radius-full);
   margin-top: 8px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   align-self: flex-start;
 }
 
@@ -538,7 +653,7 @@ body {
   background: var(--primary-light);
 }
 
-/* Opções Rápidas de Resposta */
+/* Opções Rápidas de Resposta Dentro do Balão */
 .quick-options-row {
   display: flex;
   flex-direction: column;
@@ -583,7 +698,7 @@ body {
   border: 1.5px solid var(--border-color);
   border-radius: var(--radius-md);
   padding: 10px 14px;
-  font-size: 16px; /* Obrigatório 16px para prevenir auto-zoom no iOS Safari */
+  font-size: 16px; /* Previne auto-zoom no iOS Safari */
   font-family: inherit;
   color: var(--text-main);
   outline: none;
@@ -601,7 +716,6 @@ body {
   width: 46px;
   height: 46px;
   border-radius: var(--radius-md);
-  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -642,7 +756,7 @@ body {
 }
 
 /* ==========================================================================
-   SEÇÃO REMÉDIOS & ALERTAS MOBILE
+   SEÇÃO REMÉDIOS COM ÍCONES NEUTROS
    ========================================================================== */
 .meds-card-list {
   display: flex;
@@ -672,7 +786,10 @@ body {
 .med-instructions {
   font-size: 0.85em;
   color: var(--text-muted);
-  margin-top: 2px;
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .med-time-tag {
@@ -684,10 +801,13 @@ body {
   font-weight: 800;
   font-size: 0.82em;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 /* ==========================================================================
-   BARRA DE NAVEGAÇÃO INFERIOR NATIVA (iOS & ANDROID DOCKED)
+   BARRA DE NAVEGAÇÃO INFERIOR COM ÍCONES NEUTROS
    ========================================================================== */
 .bottom-nav-mobile {
   position: fixed;
@@ -715,7 +835,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 3px;
   font-size: 0.72em;
   font-weight: 700;
   cursor: pointer;
@@ -725,22 +845,19 @@ body {
   user-select: none;
 }
 
-.bottom-nav-btn .nav-icon {
-  font-size: 22px;
-  line-height: 1;
+.bottom-nav-btn svg {
+  display: block;
 }
 
 .bottom-nav-btn.active {
   color: var(--primary);
 }
 
-.bottom-nav-btn.active .nav-icon {
-  transform: scale(1.1);
+.bottom-nav-btn.active svg {
+  stroke-width: 2.5;
 }
 
-/* ==========================================================================
-   BREAKPOINTS: ADAPTAÇÃO PARA TABLETS & COMPUTADORES
-   ========================================================================== */
+/* Breakpoint para telas maiores */
 @media (min-width: 640px) {
   .problems-grid {
     display: grid;

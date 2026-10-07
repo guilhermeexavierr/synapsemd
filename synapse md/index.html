@@ -8,13 +8,14 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>SYNAPSE MD — Seu Assistente de Saúde e Cuidado</title>
   
+  <!-- Favicon Original: Cruz Médica com Conexões Sinápticas Neutras -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'><defs><linearGradient id='synGrad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%230284c7'/><stop offset='100%25' stop-color='%230d9488'/></linearGradient></defs><rect width='48' height='48' rx='14' fill='url(%23synGrad)'/><path d='M24 10 V38 M10 24 H38' stroke='%23ffffff' stroke-width='4.5' stroke-linecap='round'/><circle cx='24' cy='10' r='3.5' fill='%2338bdf8' stroke='%23ffffff' stroke-width='1.5'/><circle cx='24' cy='38' r='3.5' fill='%2338bdf8' stroke='%23ffffff' stroke-width='1.5'/><circle cx='10' cy='24' r='3.5' fill='%2338bdf8' stroke='%23ffffff' stroke-width='1.5'/><circle cx='38' cy='24' r='3.5' fill='%2338bdf8' stroke='%23ffffff' stroke-width='1.5'/><circle cx='24' cy='24' r='5' fill='%23ffffff'/><circle cx='24' cy='24' r='2.5' fill='%230284c7'/></svg>">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230284c7'/><path d='M30 50 Q50 30 70 50 Q50 70 30 50' stroke='%23ffffff' stroke-width='8' fill='none'/><circle cx='50' cy='50' r='10' fill='%23ffffff'/></svg>">
 </head>
 <body>
 
   <div class="app-wrapper">
-    <!-- Barra Superior de Acessibilidade Otimizada para Mobile -->
+    <!-- Barra Superior de Acessibilidade (Ícones Neutros & Controles de Fonte Funcionais) -->
     <header class="accessibility-bar" role="region" aria-label="Opções de Acessibilidade">
       <div class="a11y-group">
         <span class="a11y-label">Letra:</span>
@@ -25,18 +26,45 @@
 
       <div class="a11y-group">
         <button class="a11y-btn" id="btn-speech-toggle" onclick="toggleAutoSpeech()" title="Ouvir mensagens em áudio" aria-label="Ativar leitura por voz">
-          <span id="speech-icon">🔊</span> <span>Voz</span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span id="speech-label">Voz</span>
         </button>
+
         <button class="a11y-btn" id="btn-contrast-toggle" onclick="toggleHighContrast()" title="Modo alto contraste" aria-label="Alternar alto contraste">
-          👁️ <span>Contraste</span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a10 10 0 0 1 0 20z" fill="currentColor"></path>
+          </svg>
+          <span>Contraste</span>
         </button>
       </div>
     </header>
 
-    <!-- Cabeçalho Principal Humanizado & Compacto -->
+    <!-- Cabeçalho Principal com Logotipo Original da Synapse MD -->
     <header class="header-human">
       <div class="brand-human">
-        <div class="brand-logo-icon" aria-hidden="true">💙</div>
+        <div class="brand-logo-icon" aria-hidden="true">
+          <svg width="38" height="38" viewBox="0 0 48 48">
+            <defs>
+              <linearGradient id="synGradHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#0284c7"/>
+                <stop offset="100%" stop-color="#0d9488"/>
+              </linearGradient>
+            </defs>
+            <rect width="48" height="48" rx="14" fill="url(#synGradHeader)"/>
+            <path d="M24 10 V38 M10 24 H38" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round"/>
+            <circle cx="24" cy="10" r="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="24" cy="38" r="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="10" cy="24" r="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="38" cy="24" r="3.5" fill="#38bdf8" stroke="#ffffff" stroke-width="1.5"/>
+            <circle cx="24" cy="24" r="5" fill="#ffffff"/>
+            <circle cx="24" cy="24" r="2.5" fill="#0284c7"/>
+          </svg>
+        </div>
         <div class="brand-text-block">
           <h1>SYNAPSE <span>MD</span></h1>
           <div class="brand-tagline">Assistente de Cuidado e Saúde</div>
@@ -46,12 +74,12 @@
       <div>
         <span class="status-badge-online">
           <span class="status-dot"></span>
-          Online
+          Ativo
         </span>
       </div>
     </header>
 
-    <!-- Faixa de Emergência Compacta & Direta -->
+    <!-- Faixa do SAMU (Mantém os Emojis de Emergência Conforme Solicitado) -->
     <aside class="emergency-strip" role="alert">
       <div class="emergency-info">
         <div class="emergency-icon" aria-hidden="true">🚨</div>
@@ -66,28 +94,40 @@
 
     <!-- Área de Conteúdo Dinâmico -->
     <main class="main-content" id="app-view-root">
-      <!-- O conteúdo das telas é renderizado dinamicamente pelo app.js -->
+      <!-- O conteúdo é injetado pelo app.js -->
     </main>
 
-    <!-- Barra de Navegação Inferior Móvel (iOS & Android) -->
+    <!-- Barra de Navegação Inferior Móvel (Com Ícones Neutros) -->
     <nav class="bottom-nav-mobile" role="navigation" aria-label="Navegação Principal do Aplicativo">
       <button class="bottom-nav-btn active" id="nav-btn-home" onclick="switchView('home')" aria-label="Início">
-        <span class="nav-icon" aria-hidden="true">🏠</span>
+        <svg class="nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
         <span>Início</span>
       </button>
 
       <button class="bottom-nav-btn" id="nav-btn-chat" onclick="switchView('chat')" aria-label="Conversar com a assistente">
-        <span class="nav-icon" aria-hidden="true">💬</span>
+        <svg class="nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
         <span>Conversar</span>
       </button>
 
       <button class="bottom-nav-btn" id="nav-btn-meds" onclick="switchView('meds')" aria-label="Meus remédios">
-        <span class="nav-icon" aria-hidden="true">💊</span>
+        <svg class="nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path>
+          <path d="m8.5 8.5 7 7"></path>
+        </svg>
         <span>Remédios</span>
       </button>
 
       <button class="bottom-nav-btn" id="nav-btn-emergency" onclick="switchView('emergency')" aria-label="Sinais de alerta e urgência">
-        <span class="nav-icon" aria-hidden="true">⚠️</span>
+        <svg class="nav-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path>
+          <line x1="12" y1="9" x2="12" y2="13"></line>
+          <line x1="12" y1="17" x2="12.01" y2="17"></line>
+        </svg>
         <span>Alertas</span>
       </button>
     </nav>
