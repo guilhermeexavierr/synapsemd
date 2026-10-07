@@ -1,0 +1,18 @@
+{
+  "name": "synapse-md",
+  "version": "1.0.0",
+  "description": "SYNAPSE MD — A Inteligência Artificial que desenvolve a inteligência humana",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "medicina",
+    "inteligencia-artificial",
+    "raciocinio-clinico",
+    "educacao-medica",
+    "evidence-first"
+  ],
+  "author": "Synapse MD Team",
+  "license": "MIT"
+}
