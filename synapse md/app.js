@@ -323,20 +323,21 @@ function renderHomeView(container) {
             <h3>${item.title}</h3>
             <p>${item.desc}</p>
           </div>
+          <span class="problem-card-chevron" aria-hidden="true">›</span>
         </button>
       `).join('')}
     </div>
 
     <!-- Atalho Rápido para Conversa Livre -->
-    <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:20px; text-align:center; box-shadow:var(--shadow-card);">
-      <h4 style="font-size:1.1em; font-weight:800; color:var(--text-main); margin-bottom:6px;">
+    <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:center; box-shadow:var(--shadow-card);">
+      <h4 style="font-size:1.05em; font-weight:800; color:var(--text-main); margin-bottom:4px;">
         Prefere fazer uma pergunta diferente?
       </h4>
-      <p style="font-size:0.92em; color:var(--text-muted); margin-bottom:16px;">
+      <p style="font-size:0.86em; color:var(--text-muted); margin-bottom:14px;">
         Você pode conversar livremente sobre qualquer remédio, sintoma ou exame.
       </p>
       <button class="send-human-btn" style="margin:0 auto; width:100%; max-width:320px; justify-content:center;" onclick="switchView('chat')">
-        💬 Abrir Conversa com o Assistente
+        💬 Conversar com a Assistente
       </button>
     </div>
   `;
@@ -376,11 +377,16 @@ function renderChatView(container) {
   container.innerHTML = `
     <div class="chat-container-human">
       <div class="chat-header-bar">
-        <div class="chat-assistant-info">
-          <div class="chat-avatar-small" aria-hidden="true">👩‍⚕️</div>
-          <div>
-            <div style="font-size:1.05em; font-weight:800; color:var(--text-main);">Sofia — Assistente Synapse</div>
-            <div style="font-size:0.82em; color:var(--text-muted);">Pronta para te ouvir e tirar dúvidas</div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <button class="a11y-btn" style="min-width:34px; padding:4px 8px; font-size:0.82em;" onclick="switchView('home')" title="Voltar ao início">
+            ← Voltar
+          </button>
+          <div class="chat-assistant-info">
+            <div class="chat-avatar-small" aria-hidden="true">👩‍⚕️</div>
+            <div>
+              <div style="font-size:0.95em; font-weight:800; color:var(--text-main); line-height:1.2;">Sofia</div>
+              <div style="font-size:0.75em; color:var(--text-muted);">Assistente Synapse</div>
+            </div>
           </div>
         </div>
 
@@ -388,8 +394,9 @@ function renderChatView(container) {
           class="speech-audio-btn" 
           onclick="toggleAutoSpeech()"
           title="Alternar leitura automática"
+          style="margin-top:0;"
         >
-          ${PatientAppState.autoSpeech ? '🔊 Voz Ativa' : '🔈 Ativar Voz'}
+          ${PatientAppState.autoSpeech ? '🔊 Voz' : '🔈 Voz'}
         </button>
       </div>
 

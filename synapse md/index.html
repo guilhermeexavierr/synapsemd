@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <title>SYNAPSE MD — Seu Assistente de Saúde e Cuidado</title>
-  
-  <!-- Fontes Legíveis e Humanizadas -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%230284c7'/><path d='M30 50 Q50 30 70 50 Q50 70 30 50' stroke='%23ffffff' stroke-width='8' fill='none'/><circle cx='50' cy='50' r='10' fill='%23ffffff'/></svg>">
@@ -16,81 +14,81 @@
 <body>
 
   <div class="app-wrapper">
-    <!-- Barra Superior de Acessibilidade (Visão & Toque Inclusivos) -->
+    <!-- Barra Superior de Acessibilidade Otimizada para Mobile -->
     <header class="accessibility-bar" role="region" aria-label="Opções de Acessibilidade">
       <div class="a11y-group">
-        <span class="a11y-label">Tamanho da Letra:</span>
-        <button class="a11y-btn" id="btn-font-normal" onclick="setFontSize('normal')" title="Tamanho normal de letra" aria-label="Tamanho normal de letra">A</button>
+        <span class="a11y-label">Letra:</span>
+        <button class="a11y-btn" id="btn-font-normal" onclick="setFontSize('normal')" title="Tamanho normal de letra" aria-label="Tamanho normal">A</button>
         <button class="a11y-btn" id="btn-font-large" onclick="setFontSize('large')" title="Letra grande" aria-label="Aumentar letra">A+</button>
         <button class="a11y-btn" id="btn-font-xlarge" onclick="setFontSize('xlarge')" title="Letra muito grande" aria-label="Letra muito grande">A++</button>
       </div>
 
       <div class="a11y-group">
         <button class="a11y-btn" id="btn-speech-toggle" onclick="toggleAutoSpeech()" title="Ouvir mensagens em áudio" aria-label="Ativar leitura por voz">
-          <span id="speech-icon">🔊</span> <span style="font-size:0.85em;">Leitura por Voz</span>
+          <span id="speech-icon">🔊</span> <span>Voz</span>
         </button>
         <button class="a11y-btn" id="btn-contrast-toggle" onclick="toggleHighContrast()" title="Modo alto contraste" aria-label="Alternar alto contraste">
-          👁️ Contraste
+          👁️ <span>Contraste</span>
         </button>
       </div>
     </header>
 
-    <!-- Cabeçalho Principal Humanizado -->
+    <!-- Cabeçalho Principal Humanizado & Compacto -->
     <header class="header-human">
       <div class="brand-human">
         <div class="brand-logo-icon" aria-hidden="true">💙</div>
         <div class="brand-text-block">
           <h1>SYNAPSE <span>MD</span></h1>
-          <div class="brand-tagline">Seu Apoio de Saúde e Cuidado Humano</div>
+          <div class="brand-tagline">Assistente de Cuidado e Saúde</div>
         </div>
       </div>
       
-      <div style="text-align:right;">
-        <span style="display:inline-flex; align-items:center; gap:6px; background:#dcfce7; color:#15803d; padding:6px 14px; border-radius:99px; font-size:0.85em; font-weight:700;">
-          <span style="width:8px; height:8px; border-radius:50%; background:#16a34a;"></span>
-          Online para te ajudar
+      <div>
+        <span class="status-badge-online">
+          <span class="status-dot"></span>
+          Online
         </span>
       </div>
     </header>
 
-    <!-- Faixa de Emergência & Segurança para o Paciente -->
+    <!-- Faixa de Emergência Compacta & Direta -->
     <aside class="emergency-strip" role="alert">
       <div class="emergency-info">
         <div class="emergency-icon" aria-hidden="true">🚨</div>
         <div class="emergency-text">
-          Está sentindo dor forte no peito, falta de ar intensa ou fraqueza súbita?
+          Dor forte no peito, falta de ar grave ou fraqueza súbita?
         </div>
       </div>
-      <a href="tel:192" class="emergency-btn" aria-label="Ligue agora para o SAMU 192">
-        📞 Chamar SAMU (192)
+      <a href="tel:192" class="emergency-btn" aria-label="Ligar para o SAMU 192">
+        📞 SAMU 192
       </a>
     </aside>
 
-    <!-- Área Dinâmica Principal -->
+    <!-- Área de Conteúdo Dinâmico -->
     <main class="main-content" id="app-view-root">
-      <!-- O conteúdo é injetado dinamicamente pelo app.js -->
+      <!-- O conteúdo das telas é renderizado dinamicamente pelo app.js -->
     </main>
 
     <!-- Barra de Navegação Inferior Móvel (iOS & Android) -->
     <nav class="bottom-nav-mobile" role="navigation" aria-label="Navegação Principal do Aplicativo">
-      <button class="bottom-nav-btn active" id="nav-btn-home" onclick="switchView('home')" aria-label="Ir para a página inicial">
+      <button class="bottom-nav-btn active" id="nav-btn-home" onclick="switchView('home')" aria-label="Início">
         <span class="nav-icon" aria-hidden="true">🏠</span>
         <span>Início</span>
       </button>
 
-      <button class="bottom-nav-btn" id="nav-btn-chat" onclick="switchView('chat')" aria-label="Abrir conversa com o assistente">
+      <button class="bottom-nav-btn" id="nav-btn-chat" onclick="switchView('chat')" aria-label="Conversar com a assistente">
         <span class="nav-icon" aria-hidden="true">💬</span>
         <span>Conversar</span>
       </button>
 
-      <button class="bottom-nav-btn" id="nav-btn-meds" onclick="switchView('meds')" aria-label="Ver meus remédios">
+      <button class="bottom-nav-btn" id="nav-btn-meds" onclick="switchView('meds')" aria-label="Meus remédios">
         <span class="nav-icon" aria-hidden="true">💊</span>
         <span>Remédios</span>
       </button>
 
-      <button class="bottom-nav-btn" id="nav-btn-emergency" onclick="switchView('emergency')" aria-label="Ver sinais de urgência">
+      <button class="bottom-nav-btn" id="nav-btn-emergency" onclick="switchView('emergency')" aria-label="Sinais de alerta e urgência">
         <span class="nav-icon" aria-hidden="true">⚠️</span>
-        <span>Sinais de Alerta</span>
+        <span>Alertas</span>
       </button>
     </nav>
   </div>
